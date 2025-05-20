@@ -69,3 +69,28 @@ class BaseListTest:
     def test_get_out_of_bounds(self):
         with self.assertRaises(IndexError):
             self.list.get(0)
+
+    def test_deleteAll(self):
+        self.list.append('a')
+        self.list.append('b')
+        self.list.append('a')
+        self.list.deleteAll('a')
+        self.assertEqual(self.list.length(), 1)
+        self.assertEqual(self.list.get(0), 'b')
+
+    def test_clone(self):
+        self.list.append('a')
+        clone = self.list.clone()
+        clone.append('b')
+        self.assertEqual(self.list.length(), 1)
+        self.assertEqual(clone.length(), 2)
+
+    def test_reverse(self):
+        self.list.append('a')
+        self.list.append('b')
+        self.list.append('c')
+        self.list.reverse()
+        self.assertEqual(self.list.get(0), 'c')
+        self.assertEqual(self.list.get(1), 'b')
+        self.assertEqual(self.list.get(2), 'a')
+
