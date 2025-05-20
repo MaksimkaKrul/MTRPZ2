@@ -122,3 +122,12 @@ class BaseListTest:
         self.list.extend(other)
         self.assertEqual(self.list.length(), 3)
         self.assertEqual(self.list.get(2), 'b')
+
+class TestArrayList(BaseListTest, unittest.TestCase):
+    list_class = ArrayList
+
+class TestCircularLinkedList(BaseListTest, unittest.TestCase):
+    list_class = CircularLinkedList
+
+if __name__ == '__main__':
+    unittest.main()
