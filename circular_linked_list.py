@@ -22,7 +22,7 @@ class CircularLinkedList:
                 current = current.next
             current.next = new_node
             new_node.next = self.head
-        self._length += 1
+    #    self._length += 1
 
     def insert(self, element, index):
         if index < 0 or index > self._length:
