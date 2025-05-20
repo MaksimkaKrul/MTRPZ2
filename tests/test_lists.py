@@ -94,3 +94,31 @@ class BaseListTest:
         self.assertEqual(self.list.get(1), 'b')
         self.assertEqual(self.list.get(2), 'a')
 
+
+    def test_findFirst(self):
+        self.list.append('a')
+        self.list.append('b')
+        self.list.append('a')
+        self.assertEqual(self.list.findFirst('a'), 0)
+        self.assertEqual(self.list.findFirst('c'), -1)
+
+    def test_findLast(self):
+        self.list.append('a')
+        self.list.append('b')
+        self.list.append('a')
+        self.assertEqual(self.list.findLast('a'), 2)
+        self.assertEqual(self.list.findLast('c'), -1)
+
+    def test_clear(self):
+        self.list.append('a')
+        self.list.clear()
+        self.assertEqual(self.list.length(), 0)
+
+    def test_extend(self):
+        other = self.list_class()
+        other.append('a')
+        other.append('b')
+        self.list.append('c')
+        self.list.extend(other)
+        self.assertEqual(self.list.length(), 3)
+        self.assertEqual(self.list.get(2), 'b')
